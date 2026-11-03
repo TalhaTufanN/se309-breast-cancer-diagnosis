@@ -76,7 +76,7 @@ A short **data note** (who, why, when/where, label, missingness, impossible valu
 | scikit-learn | loading the data, models, evaluation | `data/make_data.py`, notebook |
 | pandas, NumPy, Matplotlib | data handling and plots | notebook |
 | Weka | models and evaluation without code | `weka/` |
-| Claude (AI assistant) | help with setting up the repository, drafting code and text, explaining methods | <!-- list the files / sections --> |
+| Claude (AI assistant) | drafting code and text, checking the data note against the sources, explaining methods | README, `data/make_data.py`, notebook §1–§4, §10–§11 |
 
 ## Reports and video
 
