@@ -1,0 +1,69 @@
+
+Options: -I 300 -S 42 
+
+=== Classifier model (full training set) ===
+
+RandomForest
+
+Bagging with 300 iterations and base learner
+
+weka.classifiers.trees.RandomTree -K 0 -M 1.0 -V 0.001 -S 42 -do-not-check-capabilities
+
+Time taken to build model: 0.39 seconds
+
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         426              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.03  
+Root mean squared error                  0.0654
+Relative absolute error                  6.4168 %
+Root relative squared error             13.5127 %
+Total Number of Instances              426     
+
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     malignant
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     benign
+Weighted Avg.    1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 159   0 |   a = malignant
+   0 267 |   b = benign
+
+Time taken to test model on test data: 0.01 seconds
+
+=== Error on test data ===
+
+Correctly Classified Instances         139               97.2028 %
+Incorrectly Classified Instances         4                2.7972 %
+Kappa statistic                          0.9391
+Mean absolute error                      0.0753
+Root mean squared error                  0.1645
+Relative absolute error                 16.1051 %
+Root relative squared error             34.0533 %
+Total Number of Instances              143     
+
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.925    0.000    1.000      0.925    0.961      0.941    0.998     0.997     malignant
+                 1.000    0.075    0.957      1.000    0.978      0.941    0.998     0.999     benign
+Weighted Avg.    0.972    0.047    0.973      0.972    0.972      0.941    0.998     0.998     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 49  4 |  a = malignant
+  0 90 |  b = benign
+

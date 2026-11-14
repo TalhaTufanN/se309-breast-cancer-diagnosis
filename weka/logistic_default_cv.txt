@@ -1,0 +1,136 @@
+
+=== Classifier model (full training set) ===
+
+Logistic Regression with ridge parameter of 1.0E-8
+Coefficients...
+                                            Class
+Variable                                malignant
+=================================================
+mean_radius                              -19.4849
+mean_texture                              -1.6275
+mean_perimeter                            -0.0261
+mean_area                                   0.362
+mean_smoothness                         5107.2242
+mean_compactness                       -2742.7034
+mean_concavity                          2088.3544
+mean_concave_points                        5.1602
+mean_symmetry                          -2465.5477
+mean_fractal_dimension                  5887.8046
+radius_error                             478.5925
+texture_error                            -90.2296
+perimeter_error                            6.7171
+area_error                                -1.4509
+smoothness_error                       -2119.9395
+compactness_error                       1334.3849
+concavity_error                        -5051.7077
+concave_points_error                   25478.4904
+symmetry_error                         -8012.1578
+fractal_dimension_error               -21942.2416
+worst_radius                               1.0176
+worst_texture                             11.9912
+worst_perimeter                           -1.1517
+worst_area                                 0.1658
+worst_smoothness                       -2493.0344
+worst_compactness                       -234.8336
+worst_concavity                          592.4334
+worst_concave_points                   -1456.2561
+worst_symmetry                           2361.684
+worst_fractal_dimension                    56.728
+Intercept                                -838.766
+
+
+Odds Ratios...
+                                            Class
+Variable                                malignant
+=================================================
+mean_radius                                     0
+mean_texture                               0.1964
+mean_perimeter                             0.9743
+mean_area                                  1.4362
+mean_smoothness                          Infinity
+mean_compactness                                0
+mean_concavity                           Infinity
+mean_concave_points                      174.2074
+mean_symmetry                                   0
+mean_fractal_dimension                   Infinity
+radius_error                7.081143526938833E207
+texture_error                                   0
+perimeter_error                          826.4275
+area_error                                 0.2343
+smoothness_error                                0
+compactness_error                        Infinity
+concavity_error                                 0
+concave_points_error                     Infinity
+symmetry_error                                  0
+fractal_dimension_error                         0
+worst_radius                               2.7664
+worst_texture                         161332.8873
+worst_perimeter                            0.3161
+worst_area                                 1.1804
+worst_smoothness                                0
+worst_compactness                               0
+worst_concavity            1.9523400130180077E257
+worst_concave_points                            0
+worst_symmetry                           Infinity
+worst_fractal_dimension     4.3317375538563786E24
+
+
+Time taken to build model: 0.16 seconds
+
+Time taken to test model on training data: 0.01 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         426              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0     
+Root mean squared error                  0     
+Relative absolute error                  0.0003 %
+Root relative squared error              0.0018 %
+Total Number of Instances              426     
+
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     malignant
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     benign
+Weighted Avg.    1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 159   0 |   a = malignant
+   0 267 |   b = benign
+
+Time taken to perform cross-validation: 0.22 seconds
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         405               95.0704 %
+Incorrectly Classified Instances        21                4.9296 %
+Kappa statistic                          0.8942
+Mean absolute error                      0.0485
+Root mean squared error                  0.2183
+Relative absolute error                 10.3644 %
+Root relative squared error             45.1349 %
+Total Number of Instances              426     
+
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.925    0.034    0.942      0.925    0.933      0.894    0.983     0.962     malignant
+                 0.966    0.075    0.956      0.966    0.961      0.894    0.978     0.979     benign
+Weighted Avg.    0.951    0.060    0.951      0.951    0.951      0.894    0.979     0.973     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 147  12 |   a = malignant
+   9 258 |   b = benign
+

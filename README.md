@@ -18,10 +18,18 @@ The project classifies breast tumours as benign or malignant from 30 cell-nucleu
 ## How to install and run
 
 ### Weka
-1. Open Weka → Explorer → **Open file…** → `data/wdbc.arff`.
+Weka 3.8.7 was used.
+
+1. Open Weka → Explorer → **Open file…** → `data/wdbc_train.arff`.
    (Do **not** use the `breast-cancer.arff` file that ships with Weka — it is a different dataset.)
-2. Load the saved model: Classify tab → right-click the result list → **Load model** → `weka/<model>.model`.
-3. Settings used: <!-- classifier, filters, test option — added when the Weka part is done -->
+2. To evaluate a saved model: Classify tab → **Supplied test set** → `data/wdbc_test.arff`, then right-click the result list → **Load model** → for example `weka/logistic_ridge05.model` → **Re-evaluate model on current test set**.
+3. Settings used, with no filters and the class attribute `diagnosis`:
+   - `rules.ZeroR` (baseline)
+   - `functions.Logistic` with default settings, and with `-R 0.5` (main Weka model)
+   - `trees.RandomForest -I 300 -S 42`
+   - Test options: 10-fold cross-validation on the training file, and Supplied test set.
+
+To repeat all the runs from the command line: `WEKA_JAR=/path/to/weka.jar bash weka/run_weka.sh`.
 
 ### Python / Colab
 1. Open `notebooks/project.ipynb` in Google Colab (**File → Open notebook → GitHub**, paste this repository's URL).
@@ -52,8 +60,10 @@ A short **data note** (who, why, when/where, label, missingness, impossible valu
 ├── data/
 │   ├── make_data.py      # exports the scikit-learn data to CSV and ARFF
 │   ├── wdbc.csv          # the data as CSV
-│   └── wdbc.arff         # the data for Weka
-├── weka/                 # saved models (.model) and result buffers (.txt)
+│   ├── wdbc.arff         # all the data for Weka
+│   ├── wdbc_train.arff   # the training split used in Weka and the notebook
+│   └── wdbc_test.arff    # the test split used in Weka and the notebook
+├── weka/                 # saved models (.model), result buffers (.txt), run_weka.sh
 ├── notebooks/
 │   └── project.ipynb     # main notebook (from the course template)
 ├── images/               # figures used in the README and reports
@@ -76,7 +86,7 @@ A short **data note** (who, why, when/where, label, missingness, impossible valu
 | scikit-learn | loading the data, models, evaluation | `data/make_data.py`, notebook |
 | pandas, NumPy, Matplotlib | data handling and plots | notebook |
 | Weka | models and evaluation without code | `weka/` |
-| Claude (AI assistant) | drafting code and text, checking the data note against the sources, explaining methods | README, `data/make_data.py`, notebook §1–§4, §10–§11 |
+| Claude (AI assistant) | drafting code and text, checking the data note against the sources, explaining methods | README, `data/make_data.py`, `weka/run_weka.sh`, notebook §1–§7, §10–§11 |
 
 ## Reports and video
 
