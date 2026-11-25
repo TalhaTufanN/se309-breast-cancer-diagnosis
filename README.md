@@ -32,7 +32,8 @@ Weka 3.8.7 was used.
 To repeat all the runs from the command line: `WEKA_JAR=/path/to/weka.jar bash weka/run_weka.sh`.
 
 ### Python / Colab
-1. Open `notebooks/project.ipynb` in Google Colab (**File → Open notebook → GitHub**, paste this repository's URL).
+1. Open `notebooks/project.ipynb` in Google Colab: [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TalhaTufanN/se309-breast-cancer-diagnosis/blob/main/notebooks/project.ipynb)
+   (or **File → Open notebook → GitHub** and paste this repository's URL).
 2. **Runtime → Run all.** The notebook loads the data from scikit-learn itself; no other step is needed.
 
 To run locally instead: `pip install -r requirements.txt`, then open the notebook in Jupyter.
@@ -40,7 +41,18 @@ To recreate the CSV and ARFF files: `python data/make_data.py`.
 
 ## Example output
 
-<!-- Added when the first results are ready: ![Main result](images/result.png) -->
+Results on the held-out test set (143 samples, 53 malignant). Malignant is the positive class; FN = malignant tumours predicted as benign.
+
+| Model | Accuracy | Sensitivity | Specificity | AUC | FN | FP |
+|---|---|---|---|---|---|---|
+| Baseline (always benign) | 62.9% | 0.000 | 1.000 | 0.500 | 53 | 0 |
+| Random forest, threshold 0.5 | 96.5% | 0.906 | 1.000 | 0.996 | 5 | 0 |
+| Logistic regression, threshold 0.5 | 96.5% | 0.925 | 0.989 | 0.996 | 4 | 1 |
+| **Logistic regression, threshold 0.3** (main model) | **97.9%** | **0.962** | **0.989** | **0.996** | **2** | **1** |
+
+The threshold 0.3 was chosen on the training data only, to reduce missed cancers. Weka results for the same split are in `weka/` and in Section 7 of the notebook.
+
+![Confusion matrices on the test set](images/confusion_matrices.png)
 
 ## Data
 
@@ -68,7 +80,6 @@ A short **data note** (who, why, when/where, label, missingness, impossible valu
 │   └── project.ipynb     # main notebook (from the course template)
 ├── images/               # figures used in the README and reports
 ├── reports/
-│   ├── interim_report.pdf
 │   └── final_report.pdf
 └── video.md              # link to the presentation video
 ```
@@ -88,8 +99,7 @@ A short **data note** (who, why, when/where, label, missingness, impossible valu
 | Weka | models and evaluation without code | `weka/` |
 | Claude (AI assistant) | drafting code and text, checking the data note against the sources, explaining methods | README, `data/make_data.py`, `weka/run_weka.sh`, notebook §1–§7, §10–§11 |
 
-## Reports and video
+## Report and video
 
-- Interim report (Week 10): [`reports/interim_report.pdf`](reports/interim_report.pdf)
 - Final report: [`reports/final_report.pdf`](reports/final_report.pdf)
 - Presentation video: <link — added at the final>
